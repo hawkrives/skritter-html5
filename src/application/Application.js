@@ -76,7 +76,7 @@ define([
                 },
                 function(callback) {
                     mixpanel.register({
-                        'Client': 'Android',
+                        'Client': 'HTML5 Android',
                         'Language Code': self.user.getLanguageCode()
                     });
                     callback();
