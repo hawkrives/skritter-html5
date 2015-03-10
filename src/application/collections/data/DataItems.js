@@ -284,7 +284,7 @@ define([
                         }
                     } else {
                         app.analytics.trackUserEvent('added_items', items.length);
-                        mixpanel.track('Added Words', {'Number Added': numVocabsAdded.length});
+                        mixpanel.track('Added New Words', {'Number Added': numVocabsAdded.length});
                         console.log('ITEMS', items, vocablists, numVocabsAdded);
                         self.data.set('addOffset', self.data.get('addOffset') + numVocabsAdded);
                         self.data.vocablists.add(vocablists, {merge: true});
