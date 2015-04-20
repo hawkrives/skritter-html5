@@ -55,8 +55,8 @@ define([
                         callbackError();
                     }
                 });
-            } else if (this.get('audioURL') || this.get('audio')){
-                callbackSuccess(this.get('audioURL') || this.get('audio'));
+            } else if (this.get('audioURL')){
+                callbackSuccess(this.get('audioURL'));
                 return;
             } else {
                 if (typeof callbackError === 'function') {

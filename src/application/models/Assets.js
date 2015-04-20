@@ -58,8 +58,7 @@ define([
                 plugins.expansion.media.play(decodeURIComponent(value));
             } else {
                 if (this.audio.paused) {
-                    var url = app.api.get('root') + app.api.get('tld') + value;
-                    this.audio.src = url;
+                    this.audio.src = value;
                     this.audio.play();
                 }
             }
