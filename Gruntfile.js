@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-    require('./www/config.js');
+    require('./src/config.js');
 
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
@@ -91,7 +91,7 @@ module.exports = function(grunt) {
         requirejs: {
             'build-web': {
                 options: {
-                    baseUrl: 'www',
+                    baseUrl: 'src',
                     dir: 'build/web',
                     fileExclusionRegExp: undefined,
                     generateSourceMaps: false,
