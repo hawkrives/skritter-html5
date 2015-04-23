@@ -27,7 +27,7 @@ app = (function() {
                 async: 'libraries/async-0.9.0.min',
                 backbone: 'libraries/backbone-1.1.2.min',
                 'backbone.routefilter': 'libraries/backbone.routefilter-0.2.0.min',
-                bootstrap: 'libraries/bootstrap-3.3.0.min',
+                bootstrap: 'libraries/bootstrap-3.3.4.min',
                 'bootstrap.slider': 'libraries/bootstrap.slider-4.3.0.min',
                 'bootstrap.switch': 'libraries/bootstrap.switch-3.2.2.min',
                 //'createjs.easel': 'libraries/createjs.easel-0.8.0.min',
