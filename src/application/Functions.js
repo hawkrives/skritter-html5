@@ -248,8 +248,8 @@ define([
      * @returns {Boolean}
      */
     function isKana(text) {
-        var chars = text.split('');
-        if (chars.length > 0) {
+        var chars = text ? text.split('') : [];
+        if (chars.length) {
             for (var i = 0, length = chars.length; i < length; i++) {
                 var charCode = text.charCodeAt(i);
                 if (!(charCode >= 12353 && charCode <= 12436) &&
@@ -258,6 +258,8 @@ define([
                     return false;
                 }
             }
+        } else {
+            return false;
         }
         return true;
     }
