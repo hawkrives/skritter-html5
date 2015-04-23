@@ -70,6 +70,11 @@ define([
             } else {
                 this.$('#styles').parent().hide();
             }
+            if (this.settings.allPartsEnabled()) {
+                this.$('#study-parts-notice').hide();
+            } else {
+                this.$('#study-parts-notice').show();
+            }
             this.listTable.setFields({
                 name: '',
                 remove: ''

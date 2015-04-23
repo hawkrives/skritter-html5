@@ -52,6 +52,17 @@ define([
             tutorials: ['defn', 'grading', 'rdng', 'rune', 'tone']
         },
         /**
+         * @method allPartsEnabled
+         * @returns {Boolean}
+         */
+        allPartsEnabled: function() {
+            if (this.user.isChinese()) {
+                return this.get('allChineseParts').length === this.get('chineseStudyParts').length;
+            } else {
+                return this.get('allJapaneseParts').length === this.get('japaneseStudyParts').length;
+            }
+        },
+        /**
          * @method disableTutorial
          * @param {String} name
          * @returns {Boolean}
