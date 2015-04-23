@@ -223,6 +223,7 @@ define([
                     value = currentDefinition;
                     self.vocab.set('customDefinition', undefined);
                 } else if (currentDefinition !== value) {
+                    mixpanel.track('Edited Definition');
                     self.vocab.set('customDefinition', value);
                 } else {
                     value = currentDefinition;
@@ -248,6 +249,7 @@ define([
                     value = '';
                     self.containedVocab.set('mnemonic', '');
                 } else if (currentMnemonic !== value) {
+                    mixpanel.track('Edited Mnemonic');
                     if (self.containedVocab.get('mnemonic')) {
                         self.containedVocab.get('mnemonic').text = value;
                         self.containedVocab.set('mnemonic', self.vocab.get('mnemonic'));
