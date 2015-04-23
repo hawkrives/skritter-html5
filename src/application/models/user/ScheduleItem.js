@@ -161,7 +161,7 @@ define([
                         if (result.containedVocabs.length === 0) {
                             strokeWritings = [result.vocab.get('writing')];
                         } else {
-                            strokeWritings = _.pluck(result.containedVocabs, function(vocab) {
+                            strokeWritings = result.containedVocabs.map(function(vocab) {
                                 return vocab.attributes.writing;
                             });
                         }
@@ -187,7 +187,7 @@ define([
                     if (result.containedVocabs.length === 0) {
                         strokeWritings = result.vocab.get('writing');
                     } else {
-                        strokeWritings = _.pluck(result.containedVocabs, function(vocab) {
+                        strokeWritings = result.containedVocabs.map(function(vocab) {
                             return vocab.attributes.writing;
                         });
                     }
