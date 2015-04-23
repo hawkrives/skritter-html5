@@ -40,7 +40,7 @@ define([
         defaults: {
             canvasSize: 600,
             expansionMainVersion: 3,
-            expansionPatchVersion: 1,
+            expansionPatchVersion: 108,
             languageCode: '@@languageCode',
             timestamp: parseInt('@@timestamp', 10),
             version: '@@version',
