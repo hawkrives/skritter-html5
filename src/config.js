@@ -38,7 +38,7 @@ app = (function() {
                 jasmine: 'libraries/jasmine-2.0.3',
                 'jasmine.boot': 'libraries/jasmine.boot-2.0.3',
                 'jasmine.html': 'libraries/jasmine.html-2.0.3',
-                jquery: 'libraries/jquery-1.11.1.min',
+                jquery: 'libraries/jquery-1.11.2.min',
                 'jquery.mobile': 'libraries/jquery.mobile-1.4.4.min',
                 'jquery.notify': 'libraries/jquery.notify-0.3.1.min',
                 'jquery.ui': 'libraries/jquery.ui-1.11.1.min',
@@ -49,8 +49,8 @@ app = (function() {
                 raygun: 'libraries/raygun-1.15.0.min',
                 'require.i18n': 'libraries/require.i18n-2.0.4',
                 'require.text': 'libraries/require.text-2.0.12',
-                underscore: 'libraries/lodash.compat-2.4.1.min',
-                'webfont': 'libraries/webfont-1.5.3.min'
+                underscore: 'libraries/lodash.compat-3.7.0.min',
+                'webfont': 'libraries/webfont-1.5.18.min'
             },
             shim: {
                 backbone: ['jquery', 'underscore'],
