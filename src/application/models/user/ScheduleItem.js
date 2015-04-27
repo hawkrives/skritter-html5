@@ -74,6 +74,7 @@ define([
          */
         load: function(callbackSuccess, callbackError) {
             var self = this;
+            var lang = self.get('lang');
             var part = self.get('part');
             var result = {};
             async.series([
@@ -106,7 +107,8 @@ define([
                 },
                 //contained items
                 function(callback) {
-                    var containedItemIds = result.vocab.getContainedItemIds(part, true);
+                    var includeKana = lang === 'ja' ? app.user.settings.get('studyKana') : false;
+                    var containedItemIds = result.vocab.getContainedItemIds(part, includeKana);
                     if (['rune', 'tone'].indexOf(part) > -1 && containedItemIds.length) {
                         app.storage.getItems('items', containedItemIds, function(containedItems) {
                             result.containedItems = app.user.data.items.add(containedItems, {merge: true, silent: true, sort: false});

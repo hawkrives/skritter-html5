@@ -105,14 +105,14 @@ define([
         getContainedItems: function() {
             var items = [];
             var part = this.get('part');
+            var includeKana = this.get('lang') === 'ja' ? app.user.settings.get('studyKana') : false;
             if (['rune', 'tone'].indexOf(part) !== -1) {
-                var containedIds = this.getVocab().getContainedItemIds(part);
+                var containedIds = this.getVocab().getContainedItemIds(part, includeKana);
                 for (var i = 0, length = containedIds.length; i < length; i++) {
                     var containedItem = app.user.data.items.get(containedIds[i]);
                     if (containedItem) {
                         items.push(app.user.data.items.get(containedIds[i]));
                     } else {
-                        //create a placeholder item
                         items.push(new DataItem());
                     }
                 }

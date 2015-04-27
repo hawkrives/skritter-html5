@@ -102,10 +102,10 @@ define([
         /**
          * @method getContainedItemIds
          * @param {String} part
-         * @param {Boolean} [excludeKana]
+         * @param {Boolean} [includeKana]
          * @returns {Array}
          */
-        getContainedItemIds: function(part, excludeKana) {
+        getContainedItemIds: function(part, includeKana) {
             var containedItemIds = [];
             //creates an array of item items based on contained vocab ids
             if (this.has('containedVocabIds')) {
@@ -123,7 +123,7 @@ define([
                 }
             }
             //filters out kana that is included is a contained vocab id
-            if (this.isJapanese() && excludeKana) {
+            if (this.isJapanese() && !includeKana) {
                 containedItemIds = containedItemIds.filter(function(itemId) {
                     return !app.fn.isKana(itemId.split('-')[2]);
                 });
