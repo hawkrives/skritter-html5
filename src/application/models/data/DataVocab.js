@@ -370,17 +370,18 @@ define([
             var reading = this.get('reading');
             if (this.isChinese()) {
                 if (reading.indexOf(', ') === -1) {
-                    reading = reading.match(/[0-9]+/g);
+                    reading = reading.match(/[1-5]+/g);
                     for (var a = 0, lengthA = reading.length; a < lengthA; a++) {
                         tones.push([parseInt(reading[a], 10)]);
                     }
+                    return tones[position - 1];
                 } else {
                     reading = reading.split(', ');
                     for (var b = 0, lengthB = reading.length; b < lengthB; b++) {
-                        tones.push([app.fn.arrayToInt(reading[b].match(/[0-9]+/g))]);
+                        tones.push(parseInt(reading[b].match(/[1-5]+/g)[0], 10));
                     }
+                    return _.flatten(tones);
                 }
-                return _.flatten(this.getCharacterCount() > 1 ? tones[position - 1] : tones);
             }
             return tones;
         },
