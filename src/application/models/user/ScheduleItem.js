@@ -126,7 +126,7 @@ define([
                 //contained vocabs
                 function(callback) {
                     var containedVocabIds = result.vocab.getContainedVocabIds(app.user.isJapanese());
-                    if (['rune', 'tone'].indexOf(part) > -1 && containedVocabIds.length) {
+                    if (['defn', 'rdng', 'rune', 'tone'].indexOf(part) > -1 && containedVocabIds.length) {
                         app.storage.getItems('vocabs', containedVocabIds, function(containedVocabs) {
                             if (containedVocabIds.length === containedVocabs.length) {
                                 result.containedVocabs = app.user.data.vocabs.add(containedVocabs, {merge: true, silent: true, sort: false});
