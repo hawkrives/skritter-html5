@@ -220,7 +220,7 @@ define([
          */
         next: function() {
             if (this.isLast()) {
-                return fale;
+                return false;
             }
             this.attributes.position++;
             return true;
