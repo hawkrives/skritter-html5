@@ -195,6 +195,20 @@ define([
             return shape;
         },
         /**
+         * @method getStrokeSize
+         * @returns {Number}
+         */
+        getStrokeSize: function() {
+            var strokeSize = this.canvasSize * 0.03;
+            if (strokeSize > 24) {
+                strokeSize = 24;
+            }
+            if (strokeSize < 12) {
+                strokeSize = 12;
+            }
+            return strokeSize;
+        },
+        /**
          * @method enableInput
          * @returns {PromptCanvas}
          */
@@ -206,7 +220,7 @@ define([
             function down(event) {
                 points = [];
                 marker = new createjs.Shape();
-                marker.graphics.setStrokeStyle(self.strokeSize, self.strokeCaps, self.strokeJoints).beginStroke(self.strokeColor);
+                marker.graphics.setStrokeStyle(self.getStrokeSize(), self.strokeCaps, self.strokeJoints).beginStroke(self.strokeColor);
                 oldPoint = oldMidPoint = new createjs.Point(self.stage.mouseX, self.stage.mouseY);
                 self.triggerInputDown(oldPoint, event);
                 self.getLayer('input').addChild(marker);
