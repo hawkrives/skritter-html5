@@ -126,7 +126,7 @@ define([
                 //contained vocabs
                 function(callback) {
                     var containedVocabIds = result.vocab.getContainedVocabIds(app.user.isJapanese());
-                    if (['defn', 'rdng', 'rune', 'tone'].indexOf(part) > -1 && containedVocabIds.length) {
+                    if (['rune', 'tone'].indexOf(part) > -1 && containedVocabIds.length) {
                         app.storage.getItems('vocabs', containedVocabIds, function(containedVocabs) {
                             if (containedVocabIds.length === containedVocabs.length) {
                                 result.containedVocabs = app.user.data.vocabs.add(containedVocabs, {merge: true, silent: true, sort: false});
@@ -137,6 +137,18 @@ define([
                         });
                     } else {
                         result.containedVocabs = [];
+                        callback();
+                    }
+                },
+                //more contained vocabs
+                function(callback) {
+                    var containedVocabIds = result.vocab.getContainedVocabIds(app.user.isJapanese());
+                    if (['defn', 'rdng'].indexOf(part) > -1 && containedVocabIds.length) {
+                        app.storage.getItems('vocabs', containedVocabIds, function(containedVocabs) {
+                            result.containedVocabs = app.user.data.vocabs.add(containedVocabs, {merge: true, silent: true, sort: false});
+                            callback();
+                        });
+                    } else {
                         callback();
                     }
                 },

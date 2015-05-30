@@ -186,7 +186,10 @@ define([
                     //create a temporary kana item when missing for collection
                     vocabs.push(app.user.data.vocabs.add(new DataVocab({
                         id: containedIds[i],
-                        kana: true, writing: containedIds[i].split('-')[1]
+                        definitions: {},
+                        kana: this.isJapanese(),
+                        reading: '',
+                        writing: containedIds[i].split('-')[1]
                     }), {merge: true, silent: true}));
                 }
             }
