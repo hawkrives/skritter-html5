@@ -55,9 +55,8 @@ define([
                         callbackError();
                     }
                 });
-            } else if (this.get('audioURL')){
-                callbackSuccess(this.get('audioURL'));
-                return;
+            } else if (this.get('audio')){
+                callbackSuccess(this.get('audio'));
             } else {
                 if (typeof callbackError === 'function') {
                     callbackError();
@@ -428,6 +427,16 @@ define([
          */
         isChinese: function() {
             return this.get('lang') === 'zh';
+        },
+        /**
+         * @method isEvanAudio
+         * @returns {Boolean}
+         */
+        isEvanAudio: function() {
+            var audios = this.get('audios') || [];
+            return _.filter(audios, function(audio) {
+                return audio && audio.source === 'evan';
+            }).length ? true : false;
         },
         /**
          * @method isJapanese

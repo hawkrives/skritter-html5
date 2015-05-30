@@ -41,12 +41,20 @@ define([
                 app.dialogs.element('.tutorial-disable').on('vclick', _.bind(this.disableTutorial, this));
             }
             //update review based on audio availability
-            if (this.vocab.has('audioURL')) {
-                this.review.setBase({
-                    missingAudioLang: undefined,
-                    missingAudioReading: undefined,
-                    missingAudioWriting: undefined
-                });
+            if (this.vocab.has('audio')) {
+                if (this.vocab.isEvanAudio()) {
+                    this.review.setBase({
+                        missingAudioLang: this.vocab.get('lang'),
+                        missingAudioReading: this.vocab.get('reading'),
+                        missingAudioWriting: this.vocab.get('writing')
+                    });
+                } else {
+                    this.review.setBase({
+                        missingAudioLang: undefined,
+                        missingAudioReading: undefined,
+                        missingAudioWriting: undefined
+                    });
+                }
             } else {
                 this.review.setBase({
                     missingAudioLang: this.vocab.get('lang'),
